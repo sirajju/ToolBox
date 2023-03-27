@@ -8,18 +8,19 @@ import urllib.request
 
 def InstallUpdate():
     try:
+        os.system('git clone https://github.com/sirajju/Cryptography')
         os.system('rm name.txt setup.bat version.txt Cryptography.py')
-        os.system('cp setup.bat Cryptography.py ')
         return True
     except:
         return False
-
+    
 def isConnected():
     try:
         urllib.request.urlopen('https://github.com')
         return True
     except:
         return False
+    
 def CheckForUpdate():
     if isConnected():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
@@ -31,7 +32,6 @@ def CheckForUpdate():
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
                 print('\nPreparing to update..\n')
                 time.sleep(3)
-                os.system('git clone https://github.com/sirajju/Cryptography')
                 if InstallUpdate():
                     print('\n\nUpdated succesfully')
                 else:
