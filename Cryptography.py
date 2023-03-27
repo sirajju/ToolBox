@@ -6,6 +6,14 @@ import os
 import webbrowser
 import urllib.request
 
+def InstallUpdate():
+    try:
+        os.system('rm name.txt setup.bat version.txt Cryptography.py')
+        os.system('cp setup.bat Cryptography.py ')
+        return True
+    except:
+        return False
+
 def isConnected():
     try:
         urllib.request.urlopen('https://github.com')
@@ -14,14 +22,20 @@ def isConnected():
         return False
 def CheckForUpdate():
     if isConnected():
-        os.system('curl localhost/version.txt>version.txt&&clear')
+        os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            if version == '1.0\n':
+            if version == '1.4\n':
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
-                exit()
+                print('\nPreparing to update..\n')
+                time.sleep(3)
+                os.system('git clone https://github.com/sirajju/Cryptography')
+                if InstallUpdate():
+                    print('\n\nUpdated succesfully')
+                else:
+                    print('\n\nUpdation failed\nPlease update manually to get latest features')
     else:
         print('\nCheck for update failed :- No internet available!')
 def end():
@@ -47,7 +61,6 @@ def encrypt():
     print('\nEncrypted text : '+enc_text.decode())
     end()
 
-
 def decrypt(): 
     try:
         enc_key = input('\nEnter your key of the algorithm : ')
@@ -58,7 +71,6 @@ def decrypt():
         end()
     except:
         print('\n\nSomething went wrong!')
-
  
 def b64encode():
     text = input('\nEnter your text to encode : ')
@@ -79,7 +91,6 @@ def b64decode():
     except:
         print('\nPlease enter base64 value !')
 
-
 def hash(method):
     text = input('\nEnter the text to hash : ')
     enc_text = text.encode()
@@ -91,7 +102,6 @@ def hash(method):
         print('\nInvalid input')
     print('\nHashed text is : '+hash_text)
     end()
-
 
 def hashCompare(method):
 
@@ -110,7 +120,7 @@ def hashCompare(method):
         print('\nSorry you have entered the wrong hash value :( ')
     end()
 CheckForUpdate()
-print('\nSelect an option from below \n\n1.Encrypt \n2.Decrypt \n3.Base64 Encode \n4.Base64 Decode \n5.Hash (md5,sha-1) \n6.Compare hash (md5,sha-1)')
+print('\nDeveloper : @sirajju \n\nSelect an option from below \n\n1.Encrypt \n2.Decrypt \n3.Base64 Encode \n4.Base64 Decode \n5.Hash (md5,sha-1) \n6.Compare hash (md5,sha-1)')
 choice = input('\nEnter your choice (1,2,3,4,5,6) : ')
 if choice == '1':
     encrypt()
@@ -136,4 +146,3 @@ elif choice == '6':
             print('Invalid input')
 else:
         print('Invalid input')
-
