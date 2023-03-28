@@ -11,7 +11,7 @@ def InstallUpdate(version):
         folder = 'Cryptography_'+version
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         os.system('rm name.txt setup.bat version.txt Cryptography.py')
-        os.system('bash Cryptography_3.0/install_update.sh')
+        os.system('bash Cryptography_4.0/install_update.sh')
         return True
     except:
         return False
@@ -28,7 +28,7 @@ def CheckForUpdate():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            if version == '3.0\n':
+            if version == '4.0\n':
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
@@ -50,7 +50,7 @@ def end():
     with open('name.txt','r') as f:
         name = f.read()
         print('\n<---------------The End--------------->')
-        if name!=fav_name.decode() or name!=fav_nam_sm.decode():
+        if name!=fav_name.decode():
             x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
                 print("\nYou will be redirected to author's page in 5 Seconds...")
