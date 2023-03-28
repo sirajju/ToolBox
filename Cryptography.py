@@ -27,7 +27,7 @@ def CheckForUpdate():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            if version == '1.5\n':
+            if version == '2.0\n':
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
