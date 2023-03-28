@@ -28,7 +28,7 @@ def CheckForUpdate():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            if version == '2.3\n':
+            if version == '3.0\n':
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
@@ -42,17 +42,33 @@ def CheckForUpdate():
         print('\nCheck for update failed :- No internet available!')
 def end():
     os.system("whoami>name.txt")
+    fav = bs.b64decode('SSB3aWxsIHRyeSB0aGUgYmVzdCB3YXkgdG8gaW1wcmVzcyB5b3U=')
+    fav_msg = bs.b64decode('SGV5LEkgZGlkbid0IHNlZSBhIGdpcmwgbGlrZSB5b3UuLkFuZCBJIGxvdmUgeW91IDop')
+    fav_link = bs.b64decode('QW5kIGkgaGF2ZSBhIGdpZnQgZm9yIHlvdS4uRG8geW91IHdhbnQgdG8gb3BlbiBub3cgPyAoeWVzL3kpIDog')
+    fav_name = bs.b64decode('QU5TSVlB')
+    fav_nam_sm = bs.b64decode('YW5zaXlh')
     with open('name.txt','r') as f:
         name = f.read()
         print('\n<---------------The End--------------->')
-        x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
-        if x=='Yes' or x=='yes' or x=='Y' or x=='y':
-            print("\nYou will be redirected to author's page in 5 Seconds...")
-            time.sleep(5)
-            webbrowser.open('https://github.com/sirajju')
-            print('\nThank you for your support !')
+        if name!=fav_name.decode() or name!=fav_nam_sm.decode():
+            x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
+            if x=='Yes' or x=='yes' or x=='Y' or x=='y':
+                print("\nYou will be redirected to author's page in 5 Seconds...")
+                time.sleep(5)
+                webbrowser.open('https://github.com/sirajju')
+                print('\nThank you for your support !')
+            else:
+                print('\nOk Thanks!')
         else:
-            print('\nOk Thanks!')
+            print(fav_msg.decode())
+            print('\n'+fav.decode())
+            her_choice = input('\n'+fav_link.decode())
+            if her_choice =='Yes' or her_choice =='Y' or her_choice =='yes' or her_choice =='y':
+                print('\nNow here you goo :)')
+                time.sleep(2)
+                webbrowser.open('https://sirajju.github.io/Foryou/')
+            else:
+                print('\nOkay :(')
 def encrypt():
     text = input('\nEnter text to encrypt : ')
     key = Fernet.generate_key()
