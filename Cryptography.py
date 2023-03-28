@@ -6,9 +6,10 @@ import os
 import webbrowser
 import urllib.request
 
-def InstallUpdate():
+def InstallUpdate(version):
     try:
-        os.system('git clone https://github.com/sirajju/Cryptography')
+        folder = 'Cryptography_'+version
+        os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         os.system('rm name.txt setup.bat version.txt Cryptography.py')
         return True
     except:
@@ -26,13 +27,13 @@ def CheckForUpdate():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            if version == '1.2\n':
+            if version == '1.1\n':
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
                 print('\nPreparing to update..\n')
                 time.sleep(3)
-                if InstallUpdate():
+                if InstallUpdate(version):
                     print('\n\nUpdated succesfully')
                 else:
                     print('\n\nUpdation failed\nPlease update manually to get latest features')
