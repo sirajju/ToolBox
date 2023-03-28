@@ -11,7 +11,7 @@ def InstallUpdate(version):
         folder = 'Cryptography_'+version
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         os.system('rm name.txt setup.bat version.txt Cryptography.py')
-        os.system('bash Cryptography_2.2/install_update.sh')
+        os.system('bash Cryptography_3.0/install_update.sh')
         return True
     except:
         return False
