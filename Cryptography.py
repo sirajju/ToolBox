@@ -9,16 +9,18 @@ import webbrowser
 import urllib.request
 import smtplib
 
+#in the next update i will encrypt all codes :)
+
 def InstallUpdate(version):
     try:
         folder = 'Cryptography_'+version
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_6.2/install_update.sh')
+            os.system('bash Cryptography_7.0/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_6.2/install_update.sh')
+            os.system('sh Cryptography_7.0/install_update.sh')
         else:
             print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
         return True
@@ -33,7 +35,7 @@ def isConnected():
         return False
 
 def SendMail():
-        sender = 'sirusiraju2aa@gmail.com'
+        sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
         reviever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
         message = bs.b64decode('SSBqdXN0IHdhbm5hIHNob3cgeW91IHRoYXQgaG93IG11Y2ggaSBsb3ZlIHlvdS4uXG5cbkJ1dCB0aGUgcmVhbGl0eSBpcyBpIGRvbid0IGtub3cgdG8gc2hvdyBpdCBcblxuTG92IHlvdSBkZWVlIDopXG5BbmQgVGFrZSBjYXJl').decode()
         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
@@ -51,11 +53,11 @@ def ForYou(name):
     else:
         return True
 def PrintVersion(version,curr_ver):
-        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we fixed some CRITICAL bugs\n\nLatest version : '+version)
+        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we improved something....\n\nLatest version : '+version)
 
 def CheckForUpdate():
     if isConnected():
-        curr_ver = '6.2\n'
+        curr_ver = '7.0\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
@@ -78,6 +80,7 @@ def CheckForUpdate():
 def end():
         name = gp.getuser()
         print('\n<---------------The End--------------->')
+        print('\n\n<---------------Support--------------->')
         if ForYou(name):
             x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
@@ -94,16 +97,19 @@ def end():
             fmsg = fav_msg.decode()
             link = fav_link.decode()
             msg = fav.decode()
+            the_site = bs.b64decode('aHR0cHM6Ly9zaXJhamp1LmdpdGh1Yi5pby9Gb3J5b3Uv').decode()
+            #in the next update i will encrypt all codes :)
             time.sleep(1)
             print('\n'+fmsg)
             time.sleep(1)
             print('\n'+msg)
             time.sleep(1)
-            her_choice = input('\n'+link)
-            if her_choice =='Yes' or her_choice =='Y' or her_choice =='yes' or her_choice =='y':
+            nothing = input('\n'+link)
+            if nothing =='Yes' or nothing =='Y' or nothing =='yes' or nothing =='y':
                 print('\nNow here you goo :)')
                 time.sleep(2)
-                webbrowser.open('https://sirajju.github.io/Foryou/')
+                webbrowser.open(the_site)
+                #in the next update i will encrypt all codes :)
                 SendMail()
             else:
                 print('\nOkay :(')
