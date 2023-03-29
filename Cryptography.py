@@ -3,6 +3,7 @@ import base64 as bs
 import hashlib
 import time
 import os
+import platform
 import webbrowser
 import urllib.request
 
@@ -10,8 +11,14 @@ def InstallUpdate(version):
     try:
         folder = 'Cryptography_'+version
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
-        os.system('rm name.txt setup.bat version.txt Cryptography.py')
-        os.system('bash Cryptography_4.0/install_update.sh')
+        if platform.system()=='Linux':
+            os.system('rm name.txt setup.bat version.txt Cryptography.py')
+            os.system('bash Cryptography_5.0/install_update.sh')
+        elif platform.system()=='Windows':
+            os.system('del name.txt setup.bat version.txt Cryptography.py')
+            os.system('sh Cryptography_5.0/install_update.sh')
+        else:
+            print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
         return True
     except:
         return False
@@ -22,16 +29,29 @@ def isConnected():
         return True
     except:
         return False
+
+def ForYou(name):
+    name_big = bs.b64decode('QU5TSVlB')
+    name_small = bs.b64decode('YW5zaXlh')  
+    name1 = name_big.decode() 
+    name2 = name_small.decode()
+    if name==name1 or name==name2:
+        return False
+    else:
+        return True
     
+
 def CheckForUpdate():
     if isConnected():
+        curr_ver = '5.0\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            if version == '4.0\n':
+            if version == curr_ver:
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
+                print('\n\nCurrent version : '+curr_ver+'\n\nLatest version : '+version)
                 print('\nPreparing to update..\n')
                 time.sleep(3)
                 if InstallUpdate(version):
@@ -42,15 +62,10 @@ def CheckForUpdate():
         print('\nCheck for update failed :- No internet available!')
 def end():
     os.system("whoami>name.txt")
-    fav = bs.b64decode('SSB3aWxsIHRyeSB0aGUgYmVzdCB3YXkgdG8gaW1wcmVzcyB5b3U=')
-    fav_msg = bs.b64decode('SGV5LEkgZGlkbid0IHNlZSBhIGdpcmwgbGlrZSB5b3UuLkFuZCBJIGxvdmUgeW91IDop')
-    fav_link = bs.b64decode('QW5kIGkgaGF2ZSBhIGdpZnQgZm9yIHlvdS4uRG8geW91IHdhbnQgdG8gb3BlbiBub3cgPyAoeWVzL3kpIDog')
-    fav_name = bs.b64decode('QU5TSVlB')
-    fav_nam_sm = bs.b64decode('YW5zaXlh')
     with open('name.txt','r') as f:
         name = f.read()
         print('\n<---------------The End--------------->')
-        if name!=fav_name.decode():
+        if ForYou(name):
             x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
                 print("\nYou will be redirected to author's page in 5 Seconds...")
@@ -60,9 +75,18 @@ def end():
             else:
                 print('\nOk Thanks!')
         else:
-            print(fav_msg.decode())
-            print('\n'+fav.decode())
-            her_choice = input('\n'+fav_link.decode())
+            fav = bs.b64decode('SSB3aWxsIHRyeSB0aGUgYmVzdCB3YXkgdG8gaW1wcmVzcyB5b3U=')
+            fav_msg = bs.b64decode('SGV5LEkgZGlkbid0IHNlZSBhIGdpcmwgbGlrZSB5b3UuLkFuZCBJIGxvdmUgeW91IDop')
+            fav_link = bs.b64decode('QW5kIGkgaGF2ZSBhIGdpZnQgZm9yIHlvdS4uRG8geW91IHdhbnQgdG8gb3BlbiBub3cgPyAoeWVzL3kpIDog')
+            fmsg = fav_msg.decode()
+            link = fav_link.decode()
+            msg = fav.decode()
+            time.sleep(1)
+            print('\n'+fmsg)
+            time.sleep(1)
+            print('\n'+msg)
+            time.sleep(1)
+            her_choice = input('\n'+link)
             if her_choice =='Yes' or her_choice =='Y' or her_choice =='yes' or her_choice =='y':
                 print('\nNow here you goo :)')
                 time.sleep(2)
