@@ -45,7 +45,7 @@ def ForYou(name):
     name_small = bs.b64decode('YW5zaXlh')  
     name1 = name_big.decode() 
     name2 = name_small.decode()
-    if name==str(name1) or name==str(name2):
+    if name==str(name1) or name==str(name2) or name==name1 or name==name2:
         return False
     else:
         return True
