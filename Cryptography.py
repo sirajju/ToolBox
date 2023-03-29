@@ -3,6 +3,7 @@ import base64 as bs
 import hashlib
 import time
 import os
+import getpass as gp
 import platform
 import webbrowser
 import urllib.request
@@ -14,10 +15,10 @@ def InstallUpdate(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_6.1/install_update.sh')
+            os.system('bash Cryptography_6.2/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_6.1/install_update.sh')
+            os.system('sh Cryptography_6.2/install_update.sh')
         else:
             print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
         return True
@@ -34,10 +35,10 @@ def isConnected():
 def SendMail():
         sender = 'sirusiraju2aa@gmail.com'
         reviever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        message = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
+        message = bs.b64decode('SSBqdXN0IHdhbm5hIHNob3cgeW91IHRoYXQgaG93IG11Y2ggaSBsb3ZlIHlvdS4uXG5cbkJ1dCB0aGUgcmVhbGl0eSBpcyBpIGRvbid0IGtub3cgdG8gc2hvdyBpdCBcblxuTG92IHlvdSBkZWVlIDopXG5BbmQgVGFrZSBjYXJl').decode()
         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
         smtp_server.login(sender,'uwjmpxmbpiurtouk')
-        smtp_server.sendmail(sender,str(reviever),message)
+        smtp_server.sendmail(sender,str(reviever),str(message))
         smtp_server.close()
 
 def ForYou(name):
@@ -50,11 +51,11 @@ def ForYou(name):
     else:
         return True
 def PrintVersion(version,curr_ver):
-        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we fixed some bugs\n\nLatest version : '+version)
+        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we fixed some CRITICAL bugs\n\nLatest version : '+version)
 
 def CheckForUpdate():
     if isConnected():
-        curr_ver = '6.1\n'
+        curr_ver = '6.2\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
@@ -75,11 +76,9 @@ def CheckForUpdate():
     else:
         print('\nCheck for update failed :- No internet available!')
 def end():
-    os.system("whoami>name.txt")
-    with open('name.txt','r') as f:
-        name = f.read()
+        name = gp.getuser()
         print('\n<---------------The End--------------->')
-        if ForYou(name)==0:
+        if ForYou(name):
             x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
                 print("\nYou will be redirected to author's page in 5 Seconds...")
