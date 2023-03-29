@@ -14,10 +14,10 @@ def InstallUpdate(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_6.0/install_update.sh')
+            os.system('bash Cryptography_6.1/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_6.0/install_update.sh')
+            os.system('sh Cryptography_6.1/install_update.sh')
         else:
             print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
         return True
@@ -50,11 +50,11 @@ def ForYou(name):
     else:
         return True
 def PrintVersion(version,curr_ver):
-        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we added some extra features\n\nLatest version : '+version)
+        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we fixed some bugs\n\nLatest version : '+version)
 
 def CheckForUpdate():
     if isConnected():
-        curr_ver = '6.0\n'
+        curr_ver = '6.1\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
@@ -79,7 +79,7 @@ def end():
     with open('name.txt','r') as f:
         name = f.read()
         print('\n<---------------The End--------------->')
-        if ForYou(name):
+        if ForYou(name)==0:
             x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
                 print("\nYou will be redirected to author's page in 5 Seconds...")
@@ -177,7 +177,7 @@ def hashCompare(method):
         print('\nSorry you have entered the wrong hash value :( ')
     end()
 CheckForUpdate()
-print('\nDeveloper : @sirajju \n\nSelect an option from below \n\n1.Encrypt \n2.Decrypt \n3.Base64 Encode \n4.Base64 Decode \n5.Hash (md5,sha-1) \n6.Compare hash (md5,sha-1)')
+print('\nDeveloper : @sirajju \n\nSelect an option from below \n\n1.Encrypt \n2.Decrypt \n3.Base64 Encode \n4.Base64 Decode \n5.Hash (md5,sha-1) \n6.Compare hash (md5,sha-1) \n7.AES (coming soon..)')
 choice = input('\nEnter your choice (1,2,3,4,5,6) : ')
 if choice == '1':
     encrypt()
