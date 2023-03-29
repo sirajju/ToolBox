@@ -37,7 +37,7 @@ def SendMail():
         message = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
         smtp_server.login(sender,'uwjmpxmbpiurtouk')
-        smtp_server.sendmail(sender,reviever,message)
+        smtp_server.sendmail(sender,str(reviever),message)
         smtp_server.close()
 
 def ForYou(name):
