@@ -17,10 +17,10 @@ def InstallUpdate(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_7.0/install_update.sh')
+            os.system('bash Cryptography_7.1/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_7.0/install_update.sh')
+            os.system('sh Cryptography_7.1/install_update.sh')
         else:
             print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
         return True
@@ -37,7 +37,7 @@ def isConnected():
 def SendMail():
         sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
         reviever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        message = bs.b64decode('SSBqdXN0IHdhbm5hIHNob3cgeW91IHRoYXQgaG93IG11Y2ggaSBsb3ZlIHlvdS4uXG5cbkJ1dCB0aGUgcmVhbGl0eSBpcyBpIGRvbid0IGtub3cgdG8gc2hvdyBpdCBcblxuTG92IHlvdSBkZWVlIDopXG5BbmQgVGFrZSBjYXJl').decode()
+        message = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
         smtp_server.login(sender,'uwjmpxmbpiurtouk')
         smtp_server.sendmail(sender,str(reviever),str(message))
@@ -57,7 +57,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if isConnected():
-        curr_ver = '7.0\n'
+        curr_ver = '7.1\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
