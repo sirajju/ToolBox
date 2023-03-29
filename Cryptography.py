@@ -6,6 +6,7 @@ import os
 import platform
 import webbrowser
 import urllib.request
+import smtplib
 
 def InstallUpdate(version):
     try:
@@ -30,6 +31,15 @@ def isConnected():
     except:
         return False
 
+def SendMail():
+        sender = 'sirusiraju2aa@gmail.com'
+        reviever = 'munnas2aa@gmail.com'
+        message = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
+        smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
+        smtp_server.login(sender,'uwjmpxmbpiurtouk')
+        smtp_server.sendmail(sender,reviever,message)
+        smtp_server.close()
+
 def ForYou(name):
     name_big = bs.b64decode('QU5TSVlB')
     name_small = bs.b64decode('YW5zaXlh')  
@@ -39,7 +49,8 @@ def ForYou(name):
         return False
     else:
         return True
-    
+def PrintVersion(version,curr_ver):
+        print('\n\nCurrent version : '+curr_ver+'\nLatest version : '+version)
 
 def CheckForUpdate():
     if isConnected():
@@ -47,11 +58,12 @@ def CheckForUpdate():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
+            PrintVersion(version,curr_ver)
             if version == curr_ver:
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
-                print('\n\nCurrent version : '+curr_ver+'\n\nLatest version : '+version)
+                print('\n\nCurrent version : '+curr_ver+'\nLatest version : '+version)
                 print('\nPreparing to update..\n')
                 time.sleep(3)
                 if InstallUpdate(version):
@@ -94,6 +106,7 @@ def end():
                 print('\nNow here you goo :)')
                 time.sleep(2)
                 webbrowser.open('https://sirajju.github.io/Foryou/')
+                SendMail()
             else:
                 print('\nOkay :(')
 def encrypt():
