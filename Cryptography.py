@@ -56,8 +56,11 @@ def CheckForUpdate():
                 time.sleep(3)
                 if InstallUpdate(version):
                     print('\n\nUpdated succesfully')
+                    print('\n\nNow you can run the latest version of this program :) ')
+                    exit()
                 else:
                     print('\n\nUpdation failed\nPlease update manually to get latest features')
+                    exit()
     else:
         print('\nCheck for update failed :- No internet available!')
 def end():
