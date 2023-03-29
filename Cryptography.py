@@ -14,10 +14,10 @@ def InstallUpdate(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_5.1/install_update.sh')
+            os.system('bash Cryptography_6.0/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_5.1/install_update.sh')
+            os.system('sh Cryptography_6.0/install_update.sh')
         else:
             print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
         return True
@@ -54,7 +54,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if isConnected():
-        curr_ver = '5.1\n'
+        curr_ver = '6.0\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
