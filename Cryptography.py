@@ -80,7 +80,7 @@ def end():
     with open('name.txt','r') as f:
         name = f.read()
         print('\n<---------------The End--------------->')
-        if ForYou(name)==0:
+        if ForYou(name):
             x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
                 print("\nYou will be redirected to author's page in 5 Seconds...")
