@@ -50,7 +50,7 @@ def ForYou(name):
     else:
         return True
 def PrintVersion(version,curr_ver):
-        print('\n\nCurrent version : '+curr_ver+'I think it will be okay \nLatest version : '+version)
+        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we added some extra features\n\nLatest version : '+version)
 
 def CheckForUpdate():
     if isConnected():
@@ -58,12 +58,11 @@ def CheckForUpdate():
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
-            PrintVersion(version,curr_ver)
             if version == curr_ver:
                 print('Congratulation, Your version is latest')
             else:
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
-                print('\n\nCurrent version : '+curr_ver+'\nLatest version : '+version)
+                PrintVersion(version,curr_ver)
                 print('\nPreparing to update..\n')
                 time.sleep(3)
                 if InstallUpdate(version):
