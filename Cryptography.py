@@ -33,7 +33,7 @@ def isConnected():
 
 def SendMail():
         sender = 'sirusiraju2aa@gmail.com'
-        reviever = bs.b64decode('YW5zaXlhNTI0QGdtYWlsLmNvbQ==').decode()
+        reviever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
         message = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
         smtp_server.login(sender,'uwjmpxmbpiurtouk')
