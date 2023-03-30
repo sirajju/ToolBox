@@ -67,7 +67,7 @@ def PrintVersion(version,curr_ver):
 def CheckForUpdate():
     if OoOoOo():
         curr_ver = '8.0\n'
-        os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/details.txt>details.txt&&clear')
+        os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('details.txt','r') as v:
             version = v.read()
             if version == curr_ver:
