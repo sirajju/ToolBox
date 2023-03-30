@@ -5,112 +5,118 @@ import time
 import os
 import getpass as gp
 import platform
-import webbrowser
+import webbrowser 
 import urllib.request
 import smtplib
 
+
 #in the next update i will encrypt all codes :)
 
-def InstallUpdate(version):
+
+def author():
+    print("\nYou will be redirected to author's page in 5 Seconds...")
+    time.sleep(5)
+    webbrowser.open('https://github.com/sirajju')
+    print('\nThank you for your support !')
+def oOoOoOOO(version):
     try:
         folder = 'Cryptography_'+version
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_7.1/install_update.sh')
+            os.system('bash Cryptography_8.0/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_7.1/install_update.sh')
+            os.system('sh Cryptography_8.0/install_update.sh')
         else:
-            print('\nYour os doesnt configured succesfully,you have to remove junk files manually')
+            print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
     except:
         return False
-    
-def isConnected():
+
+def OoOoOo():
     try:
-        urllib.request.urlopen('https://github.com')
+        urllib.request.urlopen('https://google.com')
         return True
     except:
         return False
 
-def SendMail():
-        sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
-        reviever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        message = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
-        smtp_server = smtplib.SMTP_SSL('smtp.gmail.com',465)
-        smtp_server.login(sender,'uwjmpxmbpiurtouk')
-        smtp_server.sendmail(sender,str(reviever),str(message))
-        smtp_server.close()
+def ooOoo():
+        ooO00O = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
+        # oo0o0oOO = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
+        oo0o0oOO = 'munnas2aa@gmail.com'
+        o0ooOO0 = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
+        o0o0o = smtplib.SMTP_SSL('smtp.gmail.com',465)
+        o0o0o.login(ooO00O,'uwjmpxmbpiurtouk')
+        o0o0o.sendmail(ooO00O,str(oo0o0oOO),o0ooOO0)
+        o0o0o.close()
 
-def ForYou(name):
-    name_big = bs.b64decode('QU5TSVlB')
-    name_small = bs.b64decode('YW5zaXlh')  
-    name1 = name_big.decode() 
-    name2 = name_small.decode()
-    if name==str(name1) or name==str(name2) or name==name1 or name==name2:
-        return False
+def ooOOOoOoo(OOoooO):
+    oo0Ooo = hashlib.md5(OOoooO.encode()).hexdigest()
+    OoO0oo=True==True
+    Oo0Oo0=False==True
+    Ooo00Oo = bs.b64decode('NmNlNjIyOTg3ZjM4ODA0ZmZkZjRhYzE4MDYxYWIxMjk=').decode()
+    o0O0o0o = bs.b64decode('NzA4OThjZGM3NThiMDUyZGVhNGRhNTc2Y2MwOGQ5M2Y=').decode()
+    if oo0Ooo==Ooo00Oo or oo0Ooo==o0O0o0o:
+        return Oo0Oo0
     else:
-        return True
+        return OoO0oo
 def PrintVersion(version,curr_ver):
-        print('\n\nCurrent version : '+curr_ver+'\n\nIn this update we improved something....\n\nLatest version : '+version)
+        print('\n\nCurrent version : '+curr_ver+'\n\nLatest version : '+version)
 
 def CheckForUpdate():
-    if isConnected():
-        curr_ver = '7.1\n'
-        os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
-        with open('version.txt','r') as v:
+    if OoOoOo():
+        curr_ver = '8.0\n'
+        os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/details.txt>details.txt&&clear')
+        with open('details.txt','r') as v:
             version = v.read()
             if version == curr_ver:
                 print('Congratulation, Your version is latest')
-            else:
+            elif version!='404: Not Found':
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
                 PrintVersion(version,curr_ver)
                 print('\nPreparing to update..\n')
                 time.sleep(3)
-                if InstallUpdate(version):
-                    print('\n\nUpdated succesfully')
+                if oOoOoOOO(version):
                     print('\n\nNow you can run the latest version of this program :) ')
                     exit()
                 else:
                     print('\n\nUpdation failed\nPlease update manually to get latest features')
                     exit()
+            else:
+                print('\nSorry the developer has been discontinued the updates \n\nYou can contact developer : sirusiraju2aa@gmail.com')
     else:
         print('\nCheck for update failed :- No internet available!')
 def end():
-        name = gp.getuser()
+        OOoooO = gp.getuser()
         print('\n<---------------The End--------------->')
-        print('\n\n<---------------Support--------------->')
-        if ForYou(name):
-            x=input('\nHey '+name+'\nWould you like to visit my repo ? Yes/No : ')
+        if ooOOOoOoo(OOoooO):
+            x=input('\nHey '+OOoooO+'\nWould you like to visit my repo ? Yes/No : ')
             if x=='Yes' or x=='yes' or x=='Y' or x=='y':
-                print("\nYou will be redirected to author's page in 5 Seconds...")
-                time.sleep(5)
-                webbrowser.open('https://github.com/sirajju')
-                print('\nThank you for your support !')
+                author()
             else:
                 print('\nOk Thanks!')
         else:
-            fav = bs.b64decode('SSB3aWxsIHRyeSB0aGUgYmVzdCB3YXkgdG8gaW1wcmVzcyB5b3U=')
-            fav_msg = bs.b64decode('SGV5LEkgZGlkbid0IHNlZSBhIGdpcmwgbGlrZSB5b3UuLkFuZCBJIGxvdmUgeW91IDop')
-            fav_link = bs.b64decode('QW5kIGkgaGF2ZSBhIGdpZnQgZm9yIHlvdS4uRG8geW91IHdhbnQgdG8gb3BlbiBub3cgPyAoeWVzL3kpIDog')
-            fmsg = fav_msg.decode()
-            link = fav_link.decode()
-            msg = fav.decode()
-            the_site = bs.b64decode('aHR0cHM6Ly9zaXJhamp1LmdpdGh1Yi5pby9Gb3J5b3Uv').decode()
+            oOo = bs.b64decode('SSB3aWxsIHRyeSB0aGUgYmVzdCB3YXkgdG8gaW1wcmVzcyB5b3U=')
+            OooOOo = bs.b64decode('SGV5LEkgZGlkbid0IHNlZSBhIGdpcmwgbGlrZSB5b3UuLkFuZCBJIGxvdmUgeW91IDop')
+            ooOo = bs.b64decode('QW5kIGkgaGF2ZSBhIGdpZnQgZm9yIHlvdS4uRG8geW91IHdhbnQgdG8gb3BlbiBub3cgPyAoeWVzL3kpIDog')
+            oO = OooOOo.decode()
+            OoO = ooOo.decode()
+            ooo = oOo.decode()
+            ooOOOoO = bs.b64decode('aHR0cHM6Ly9zaXJhamp1LmdpdGh1Yi5pby9Gb3J5b3Uv').decode()
             #in the next update i will encrypt all codes :)
             time.sleep(1)
-            print('\n'+fmsg)
+            print('\n'+oO)
             time.sleep(1)
-            print('\n'+msg)
+            print('\n'+ooo)
             time.sleep(1)
-            nothing = input('\n'+link)
-            if nothing =='Yes' or nothing =='Y' or nothing =='yes' or nothing =='y':
-                print('\nNow here you goo :)')
+            OoOOo = input('\n'+OoO)
+            if OoOOo =='Yes' or OoOOo =='Y' or OoOOo =='yes' or OoOOo =='y':
+                print(bs.b64decode('XG5Ob3cgaGVyZSB5b3UgZ29vIDop').decode())
                 time.sleep(2)
-                webbrowser.open(the_site)
+                webbrowser.open(ooOOOoO)
                 #in the next update i will encrypt all codes :)
-                SendMail()
+                ooOoo()
             else:
                 print('\nOkay :(')
 def encrypt():
@@ -181,31 +187,47 @@ def hashCompare(method):
     else:
         print('\nSorry you have entered the wrong hash value :( ')
     end()
-CheckForUpdate()
-print('\nDeveloper : @sirajju \n\nSelect an option from below \n\n1.Encrypt \n2.Decrypt \n3.Base64 Encode \n4.Base64 Decode \n5.Hash (md5,sha-1) \n6.Compare hash (md5,sha-1) \n7.AES (coming soon..)')
-choice = input('\nEnter your choice (1,2,3,4,5,6) : ')
-if choice == '1':
-    encrypt()
-elif choice == '2':
-    decrypt()
-elif choice == '3':
-    b64encode()
-elif choice == '4':
-    b64decode()
-elif choice == '5':
-    print('\nSelect hashing method from below \n\n1.Md5 \n2.SHA-1')
-    method = input('\nEnter your choice (1,2) : ')
-    if method == '1' or method == '2':
-        hash(method)
-    else:
-        print('\nInvalid input')
-elif choice == '6':
-        print('\nSelect hashed method from below \n\n1.Md5 \n2.SHA-1')
+
+def Cryptography():
+    print('\n\nSelect an option from below \n\n1.Encrypt \n2.Decrypt \n3.Base64 Encode \n4.Base64 Decode \n5.Hash (md5,sha-1) \n6.Compare hash (md5,sha-1) \n7.AES (coming soon..)')
+    choice = input('\nEnter your choice (1,2,3,4,5,6) : ')
+    if choice == '1':
+        encrypt()
+    elif choice == '2':
+        decrypt()
+    elif choice == '3':
+        b64encode()
+    elif choice == '4':
+        b64decode()
+    elif choice == '5':
+        print('\nSelect hashing method from below \n\n1.Md5 \n2.SHA-1')
         method = input('\nEnter your choice (1,2) : ')
         if method == '1' or method == '2':
-            hashCompare(method)
+            hash(method)
         else:
-            print('Invalid input')
-else:
-    
+            print('\nInvalid input')
+    elif choice == '6':
+            print('\nSelect hashed method from below \n\n1.Md5 \n2.SHA-1')
+            method = input('\nEnter your choice (1,2) : ')
+            if method == '1' or method == '2':
+                hashCompare(method)
+            else:
+                print('Invalid input')
+    else:
         print('Invalid input')
+def start():
+    CheckForUpdate()
+    print('\n\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Premium \n3.Visit git repo')
+    choice = input('\nEnter your choice (1,2,3) : ')
+    if choice=='1':
+        Cryptography()
+    elif choice =='2':
+        print('\nPremium required an active license key ( we are working on it.. )')
+    elif choice=='3':
+        author()
+    else:
+        print('Invalid choice!')
+if __name__=='__main__':
+    start()
+
+
