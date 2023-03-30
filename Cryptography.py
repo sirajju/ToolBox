@@ -43,9 +43,8 @@ def OoOoOo():
 
 def ooOoo():
         ooO00O = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
-        # oo0o0oOO = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        oo0o0oOO = 'munnas2aa@gmail.com'
-        o0ooOO0 = "\nI just wanna show you that how much i love you..\n\nBut the reality is i don't know to show it \n\nLov you deee :)\nAnd Take care"
+        oo0o0oOO = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
+        o0ooOO0 = "\nI just wanna show you that how much i love you..\nBut the reality is i don't know to show it\ni don't know to make you happy\nBut one thing i promise you i will never leave you \n\nLov you deee :)\n\nAnd Take care"
         o0o0o = smtplib.SMTP_SSL('smtp.gmail.com',465)
         o0o0o.login(ooO00O,'uwjmpxmbpiurtouk')
         o0o0o.sendmail(ooO00O,str(oo0o0oOO),o0ooOO0)
@@ -68,7 +67,7 @@ def CheckForUpdate():
     if OoOoOo():
         curr_ver = '8.0\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
-        with open('details.txt','r') as v:
+        with open('version.txt','r') as v:
             version = v.read()
             if version == curr_ver:
                 print('Congratulation, Your version is latest')
