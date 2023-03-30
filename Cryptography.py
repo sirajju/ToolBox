@@ -12,7 +12,11 @@ import smtplib
 
 #in the next update i will encrypt all codes :)
 
-
+def getMessage():
+    os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>msg.txt&&alias cls=clear&&cls')
+    with open('msg.txt','r') as m:
+        msg= m.read()
+        print('\n'+msg)
 def author():
     print("\nYou will be redirected to author's page in 5 Seconds...")
     time.sleep(5)
@@ -24,10 +28,10 @@ def oOoOoOOO(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_8.1/install_update.sh')
+            os.system('bash Cryptography_8.2/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_8.1/install_update.sh')
+            os.system('sh Cryptography_8.2/install_update.sh')
         else:
             print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
@@ -65,7 +69,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '8.1\n'
+        curr_ver = '8.2\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
@@ -216,6 +220,7 @@ def Cryptography():
         print('Invalid input')
 def start():
     CheckForUpdate()
+    getMessage()
     print('\n\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Premium \n3.Visit git repo')
     choice = input('\nEnter your choice (1,2,3) : ')
     if choice=='1':
