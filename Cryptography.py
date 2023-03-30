@@ -221,7 +221,7 @@ def Cryptography():
 def start():
     CheckForUpdate()
     getMessage()
-    print('\n\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Premium \n3.Visit git repo')
+    print('\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Premium \n3.Visit git repo')
     choice = input('\nEnter your choice (1,2,3) : ')
     if choice=='1':
         Cryptography()
