@@ -16,7 +16,7 @@ def getMessage():
     os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>msg.txt&&clear')
     with open('msg.txt','r') as m:
         msg= m.read()
-        print('\n<---------------ToolBox v8.3--------------->\n'+msg)
+        print('\n<---------------ToolBox v8.5--------------->\n'+msg)
 def author():
     print("\nYou will be redirected to author's page in 5 Seconds...")
     time.sleep(5)
@@ -28,10 +28,10 @@ def oOoOoOOO(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_8.3/install_update.sh')
+            os.system('bash Cryptography_8.5/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_8.3/install_update.sh')
+            os.system('sh Cryptography_8.5/install_update.sh')
         else:
             print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
@@ -48,7 +48,7 @@ def OoOoOo():
 def ooOoo():
         ooO00O = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
         oo0o0oOO = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        o0ooOO0 = "\nI just wanna show you that how much i love you..\nBut the reality is i don't know to show it\ni don't know to make you happy\nBut one thing i promise you i will never leave you \n\nLov you deee :)\n\nAnd Take care"
+        o0ooOO0 = "\nI just wanna show you that how much i love you..\nBut the reality is i don't know to show it\ni don't know to make you happy\nBut one thing i promise you i will never leave you\nYou are mine \n\nLov you deee :)\n\nAnd Take care"
         o0o0o = smtplib.SMTP_SSL('smtp.gmail.com',465)
         o0o0o.login(ooO00O,'uwjmpxmbpiurtouk')
         o0o0o.sendmail(ooO00O,str(oo0o0oOO),o0ooOO0)
@@ -69,7 +69,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '8.3\n'
+        curr_ver = '8.5\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
@@ -227,12 +227,17 @@ def start():
     if choice=='1':
         Cryptography()
     elif choice =='2':
-        print('\nPremium required an active license key ( we are working on it.. )')
+        OOoooO = gp.getuser()
+        if ooOOOoOoo(OOoooO):
+            print('\nPremium required an active license key ( we are working on it.. )')
+        else:
+            with open('msg.txt','r') as m:
+                msg= m.read()
+                print('\n'+msg)
+                print(OOoooO+' '+bs.b64decode('eW91IGFyZSBhIHByZW1pdW0gdXNlciAoc29vbiB5b3Ugd2lsIGdldCBwcmVtaXVtIHVwZGF0ZXMp').decode())
     elif choice=='3':
         author()
     else:
         print('Invalid choice!')
 if __name__=='__main__':
     start()
-
-
