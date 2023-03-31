@@ -229,7 +229,7 @@ def start():
     elif choice =='2':
         OOoooO = gp.getuser()
         if ooOOOoOoo(OOoooO):
-            print('\nPremium required an active license key ( we are working on it.. )')
+            print('\n'+bs.b64decode('UHJlbWl1bSByZXF1aXJlZCBhbiBhY3RpdmUgbGljZW5zZSBrZXkgKCB3ZSBhcmUgd29ya2luZyBvbiBpdC4uICk=').decode())
         else:
             with open('msg.txt','r') as m:
                 msg= m.read()
