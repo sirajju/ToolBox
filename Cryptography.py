@@ -13,10 +13,10 @@ import smtplib
 #in the next update i will encrypt all codes :)
 
 def getMessage():
-    os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>msg.txt&&alias cls=clear&&cls')
+    os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>msg.txt&&clear')
     with open('msg.txt','r') as m:
         msg= m.read()
-        print('\n'+msg)
+        print('\n<---------------ToolBox v8.3--------------->\n'+msg)
 def author():
     print("\nYou will be redirected to author's page in 5 Seconds...")
     time.sleep(5)
@@ -28,10 +28,10 @@ def oOoOoOOO(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_8.2/install_update.sh')
+            os.system('bash Cryptography_8.3/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_8.2/install_update.sh')
+            os.system('sh Cryptography_8.3/install_update.sh')
         else:
             print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
@@ -69,12 +69,14 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '8.2\n'
+        curr_ver = '8.3\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
             if version == curr_ver:
+                getMessage()
                 print('Congratulation, Your version is latest')
+                
             elif version!='404: Not Found':
                 print('\n\nGood News : An update available \n\nPlease update to latest version from git repo : https://github.com/sirajju/Cryptography')
                 PrintVersion(version,curr_ver)
@@ -220,7 +222,6 @@ def Cryptography():
         print('Invalid input')
 def start():
     CheckForUpdate()
-    getMessage()
     print('\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Premium \n3.Visit git repo')
     choice = input('\nEnter your choice (1,2,3) : ')
     if choice=='1':
