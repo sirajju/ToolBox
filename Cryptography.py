@@ -13,8 +13,8 @@ import smtplib
 #in the next update i will encrypt all codes :)
 
 def getMessage():
-    os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>msg.txt&&clear')
-    with open('msg.txt','r') as m:
+    os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>message.txt&&clear')
+    with open('message.txt','r') as m:
         msg= m.read()
         print('\n<---------------ToolBox v8.5--------------->\n'+msg)
 def author():
@@ -231,7 +231,7 @@ def start():
         if ooOOOoOoo(OOoooO):
             print('\n'+bs.b64decode('UHJlbWl1bSByZXF1aXJlZCBhbiBhY3RpdmUgbGljZW5zZSBrZXkgKCB3ZSBhcmUgd29ya2luZyBvbiBpdC4uICk=').decode())
         else:
-            with open('msg.txt','r') as m:
+            with open('message.txt','r') as m:
                 msg= m.read()
                 print('\n'+msg)
                 print(OOoooO+' '+bs.b64decode('eW91IGFyZSBhIHByZW1pdW0gdXNlciAoc29vbiB5b3Ugd2lsIGdldCBwcmVtaXVtIHVwZGF0ZXMp').decode())
