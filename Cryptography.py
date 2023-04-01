@@ -66,7 +66,7 @@ def getMessage():
     os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>message.txt&&clear')
     with open('message.txt','r') as m:
         msg= m.read()
-        print('\n<---------------ToolBox v8.5--------------->\n'+msg)
+        print('\n<---------------ToolBox v9.0--------------->\n'+msg)
 def author():
     print("\nYou will be redirected to author's page in 5 Seconds...")
     time.sleep(5)
@@ -78,10 +78,10 @@ def oOoOoOOO(version):
         os.system('git clone https://github.com/sirajju/Cryptography '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_8.5/install_update.sh')
+            os.system('bash Cryptography_9.0/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_8.5/install_update.sh')
+            os.system('sh Cryptography_9.0/install_update.sh')
         else:
             print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
@@ -118,7 +118,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '8.5\n'
+        curr_ver = '9.0\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
