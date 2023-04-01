@@ -12,6 +12,56 @@ import smtplib
 
 #in the next update i will encrypt all codes :)
 
+def Mailer(sender,password,reciever,message):
+    if OoOoOo():
+        try:
+            server= smtplib.SMTP_SSL('smtp.gmail.com',465)
+            server.login(sender,password)
+            server.sendmail(sender,reciever,message)
+            server.close()
+            print('Mail send success')
+        except:
+            print('\nSomething went wrong..')
+    else:
+        print('Connect to server failed')
+def CustomeMail():
+    print('\n1.Custom sender \n2.Temp mail (recomended)')
+    choice=input('\nEnter your choice (1,2) : ')
+    reciever = input('\nEnter reciever email : ')
+    message = input('\nEnter message to send : ')
+    if choice=='1':
+        print('\nYou need sender smtp temporary mail password to continue\nYou have to make a temp password from https://accounts.google.com/')
+        sender = input('\nEnter sender mail : ')
+        password = input('\nEnter smtp temp password : ')
+    elif choice=='2':
+        sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
+        password= 'uwjmpxmbpiurtouk'
+    else:
+        print("Invalid choice")
+    Mailer(sender,password,reciever,message)
+    end()
+
+def sendMail(email):
+    sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
+    reciever = 'munnas2aa@gmail.com'
+    message = '\nHi sirajju, new user '+email+' is requesting you to activate premium'
+    password = 'uwjmpxmbpiurtouk'
+    Mailer(sender,password,reciever,message)
+
+def isPremium():
+    OOoooO=gp.getuser()
+    if ooOOOoOoo(OOoooO):
+        email=input('\nPlease enter your email to verify : ')
+        prime_mail = '09c2164d01676defaee435fa9288ed9e'
+        email_hash = hashlib.md5(email.encode()).hexdigest()
+        if email_hash!=prime_mail:
+            print("\nLook like you are not a prime member,\nSoon you will recieve an email to activate premium")
+            sendMail(email)      
+            return False
+        else:
+            return True
+    else:
+        return True
 def getMessage():
     os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>message.txt&&clear')
     with open('message.txt','r') as m:
@@ -46,13 +96,12 @@ def OoOoOo():
         return False
 
 def ooOoo():
-        ooO00O = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
-        oo0o0oOO = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
-        o0ooOO0 = "\nI just wanna show you that how much i love you..\nBut the reality is i don't know to show it\ni don't know to make you happy\nBut one thing i promise you i will never leave you\nYou are mine \n\nLov you deee :)\n\nAnd Take care"
-        o0o0o = smtplib.SMTP_SSL('smtp.gmail.com',465)
-        o0o0o.login(ooO00O,'uwjmpxmbpiurtouk')
-        o0o0o.sendmail(ooO00O,str(oo0o0oOO),o0ooOO0)
-        o0o0o.close()
+        sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
+        # reciever = bs.b64decode('YW5zaXlhYW5zaTUyNEBnbWFpbC5jb20=').decode()
+        reciever ='munnas2aa@gmail.com'
+        message = "\nYou are mine :)"
+        password = 'uwjmpxmbpiurtouk'
+        Mailer(sender,password,reciever,message)
 
 def ooOOOoOoo(OOoooO):
     oo0Ooo = hashlib.md5(OOoooO.encode()).hexdigest()
@@ -222,23 +271,16 @@ def Cryptography():
         print('Invalid input')
 def start():
     CheckForUpdate()
-    print('\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Premium \n3.Visit git repo')
+    print('\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Send mail (Premium) \n3.Visit git repo')
     choice = input('\nEnter your choice (1,2,3) : ')
     if choice=='1':
         Cryptography()
+
     elif choice =='2':
-        OOoooO = gp.getuser()
-        if ooOOOoOoo(OOoooO):
-            print('\n'+bs.b64decode('UHJlbWl1bSByZXF1aXJlZCBhbiBhY3RpdmUgbGljZW5zZSBrZXkgKCB3ZSBhcmUgd29ya2luZyBvbiBpdC4uICk=').decode())
+        if isPremium():
+            CustomeMail()
         else:
-            if OoOoOo():
-                os.system('curl https://raw.githubusercontent.com/sirajju/Cryptography/main/message.txt>message.txt&&clear')
-                with open('message.txt','r') as m:
-                    msg= m.read()
-                    print('\n'+msg)
-            else:
-                print('\nCannot retrive broadcast message - no internet available')
-            print(OOoooO+' '+bs.b64decode('eW91IGFyZSBhIHByZW1pdW0gdXNlciAoc29vbiB5b3Ugd2lsIGdldCBwcmVtaXVtIHVwZGF0ZXMp').decode())
+            print(bs.b64decode('Tm90ZSA6IFRvIHVzZSB0aGlzIGZlYXR1cmUgUHJlbWl1bSBpcyByZXF1aXJlZA==').decode())
     elif choice=='3':
         author()
     else:
