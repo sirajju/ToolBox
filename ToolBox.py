@@ -143,7 +143,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '9.2'
+        curr_ver = '9.2\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/ToolBox/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
