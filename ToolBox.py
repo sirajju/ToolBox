@@ -88,7 +88,7 @@ def getMessage():
     os.system('curl https://raw.githubusercontent.com/sirajju/ToolBox/main/message.txt>message.txt&&clear')
     with open('message.txt','r') as m:
         msg= m.read()
-        print('\n<---------------ToolBox v9.2--------------->\n'+msg)
+        print('\n<---------------ToolBox v9.3--------------->\n'+msg)
 def author():
     print("\nYou will be redirected to author's page in 5 Seconds...")
     time.sleep(5)
@@ -100,10 +100,10 @@ def oOoOoOOO(version):
         os.system('git clone https://github.com/sirajju/ToolBox '+str(folder))
         if platform.system()=='Linux':
             os.system('rm name.txt setup.bat version.txt ToolBox.py')
-            os.system('bash ToolBox_9.2/install_update.sh')
+            os.system('bash ToolBox_9.3/install_update.sh')
         elif platform.system()=='Windows':
             os.system('del name.txt setup.bat version.txt ToolBox.py')
-            os.system('sh ToolBox_9.2/install_update.sh')
+            os.system('sh ToolBox_9.3/install_update.sh')
         else:
             print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
@@ -139,7 +139,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '9.2\n'
+        curr_ver = '9.3\n'
         os.system('curl https://raw.githubusercontent.com/sirajju/ToolBox/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
