@@ -54,9 +54,9 @@ def sendMail(email):
     else:
         return False
 
-def sendOtp(otp,email):
+def sendOtp(otp,o00OOo0):
     sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
-    reciever = email
+    reciever = o00OOo0
     message = '\nYour otp to login ToolBox pro : '+str(otp)
     password = 'uwjmpxmbpiurtouk'
     if Mailer(sender,password,reciever,message):
@@ -68,21 +68,17 @@ def sendOtp(otp,email):
 def isPremium():
     OOoooO=gp.getuser()
     if ooOOOoOoo(OOoooO):
-        email=input('\nPlease enter your email : ')
-        accounts = open('accounts.txt','r')
-        prime_mail = [accounts]
-        email_hash = hashlib.md5(email.encode()).hexdigest()
-        otp = rn.randint(1000,9999)
-        if sendOtp(otp,email):
-            number=input('\nEnter otp : ')
-            if str(number)==str(otp):
-                for i in range(len(prime_mail)):
-                    if email_hash==prime_mail[i]:
-                        os.system('mkdir Data')
-                        with open('Data/my_account.txt','a') as b:
-                            b.write(email_hash)
+        o00OOo0=input('\nPlease enter your email : ')
+        o0o0OO0 = ['09c2164d01676defaee435fa9288ed9e','27b11010023004bac97812383b0daf46']
+        oo0ooo0 = hashlib.md5(o00OOo0.encode()).hexdigest()
+        oo0o00o = rn.randint(1000,9999)
+        if sendOtp(oo0o00o,o00OOo0):
+            oo00o0OO=input('\nEnter otp : ')
+            if str(oo00o0OO)==str(oo0o00o):
+                for i in range(len(o0o0OO0)):
+                    if oo0ooo0==o0o0OO0[i]:
                         return True
-                    elif len(prime_mail)==i:
+                    elif len(o0o0OO0)==i:
                             return False
             else:
                 print("\nSorry otp didn't match")
