@@ -2,6 +2,7 @@ from cryptography.fernet import Fernet
 import base64 as bs
 import hashlib
 import time
+import random as rn
 import os
 import getpass as gp
 import platform
@@ -20,10 +21,12 @@ def Mailer(sender,password,reciever,message):
             server.sendmail(sender,reciever,message)
             server.close()
             print('Mail send success')
+            return True
         except:
             print('\nSomething went wrong..')
     else:
         print('Connect to server failed')
+        return False
 def CustomeMail():
     print('\n1.Custom sender \n2.Temp mail (recomended)')
     choice=input('\nEnter your choice (1,2) : ')
@@ -46,27 +49,50 @@ def sendMail(email):
     reciever = 'munnas2aa@gmail.com'
     message = '\nHi sirajju, new user '+email+' is requesting you to activate premium'
     password = 'uwjmpxmbpiurtouk'
-    Mailer(sender,password,reciever,message)
+    if Mailer(sender,password,reciever,message):
+        return True
+    else:
+        return False
+
+def sendOtp(otp,email):
+    sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
+    reciever = email
+    message = '\nYour otp to login ToolBox pro : '+str(otp)
+    password = 'uwjmpxmbpiurtouk'
+    if Mailer(sender,password,reciever,message):
+        print('\nPlease check your mail to get otp ')
+        return True
+    else:
+        return False
 
 def isPremium():
     OOoooO=gp.getuser()
     if ooOOOoOoo(OOoooO):
-        email=input('\nPlease enter your email to verify : ')
-        prime_mail = '09c2164d01676defaee435fa9288ed9e'
+        email=input('\nPlease enter your email : ')
+        accounts = open('accounts.txt','r')
+        prime_mail = [accounts]
         email_hash = hashlib.md5(email.encode()).hexdigest()
-        if email_hash!=prime_mail:
-            print("\nLook like you are not a prime member,\nSoon you will recieve an email to activate premium")
-            sendMail(email)      
-            return False
-        else:
-            return True
+        otp = rn.randint(1000,9999)
+        if sendOtp(otp,email):
+            number=input('\nEnter otp : ')
+            if str(number)==str(otp):
+                for i in range(len(prime_mail)):
+                    if email_hash==prime_mail[i]:
+                        os.system('mkdir Data')
+                        with open('Data/my_account.txt','a') as b:
+                            b.write(email_hash)
+                        return True
+                    elif len(prime_mail)==i:
+                            return False
+            else:
+                print("\nSorry otp didn't match")
     else:
         return True
 def getMessage():
     os.system('curl https://raw.githubusercontent.com/sirajju/ToolBox/main/message.txt>message.txt&&clear')
     with open('message.txt','r') as m:
         msg= m.read()
-        print('\n<---------------ToolBox v9.1--------------->\n'+msg)
+        print('\n<---------------ToolBox v9.2--------------->\n'+msg)
 def author():
     print("\nYou will be redirected to author's page in 5 Seconds...")
     time.sleep(5)
@@ -74,20 +100,19 @@ def author():
     print('\nThank you for your support !')
 def oOoOoOOO(version):
     try:
-        folder = 'Cryptography_'+version
+        folder = 'ToolBox_'+version
         os.system('git clone https://github.com/sirajju/ToolBox '+str(folder))
         if platform.system()=='Linux':
-            os.system('rm name.txt setup.bat version.txt Cryptography.py')
-            os.system('bash Cryptography_9.1/install_update.sh')
+            os.system('rm name.txt setup.bat version.txt ToolBox.py')
+            os.system('bash ToolBox_9.2/install_update.sh')
         elif platform.system()=='Windows':
-            os.system('del name.txt setup.bat version.txt Cryptography.py')
-            os.system('sh Cryptography_9.1/install_update.sh')
+            os.system('del name.txt setup.bat version.txt ToolBox.py')
+            os.system('sh ToolBox_9.2/install_update.sh')
         else:
             print("\nYour os doesn't configured succesfully,you have to remove junk files manually")
         return True
     except:
         return False
-
 def OoOoOo():
     try:
         urllib.request.urlopen('https://google.com')
@@ -118,7 +143,7 @@ def PrintVersion(version,curr_ver):
 
 def CheckForUpdate():
     if OoOoOo():
-        curr_ver = '9.1\n'
+        curr_ver = '9.2'
         os.system('curl https://raw.githubusercontent.com/sirajju/ToolBox/main/version.txt>version.txt&&clear')
         with open('version.txt','r') as v:
             version = v.read()
@@ -132,7 +157,7 @@ def CheckForUpdate():
                 print('\nPreparing to update..\n')
                 time.sleep(3)
                 if oOoOoOOO(version):
-                    print('\n\nNow you can run the latest version of this program :) ')
+                    print('\n\nNow you can run the latest of this program :) ')
                     exit()
                 else:
                     print('\n\nUpdation failed\nPlease update manually to get latest features')
@@ -201,8 +226,6 @@ def b64encode():
     enc_text = bs.b64encode(encoded_text)
     print('\nBase64 encoded text is : '+enc_text.decode())
     end()
-
-
 def b64decode():
     try:
         enc_text = input('\nEnter text to decode in base 64 : ')
@@ -281,6 +304,7 @@ def start():
             CustomeMail()
         else:
             print(bs.b64decode('Tm90ZSA6IFRvIHVzZSB0aGlzIGZlYXR1cmUgUHJlbWl1bSBpcyByZXF1aXJlZA==').decode())
+    
     elif choice=='3':
         author()
     else:
