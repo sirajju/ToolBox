@@ -1,6 +1,7 @@
 from cryptography.fernet import Fernet
 import base64 as bs
 import hashlib
+import urllib.request as rq
 import time
 import random as rn
 import os
@@ -203,7 +204,31 @@ def encrypt():
     enc_text = fernet.encrypt(text.encode())
     print('\nEncrypted text : '+enc_text.decode())
     end()
-
+def dir_brute():
+    if OoOoOo():
+        url = input('Enter url : ')
+        wordlist = input('Enter wordlists path : ')
+        brute(url,wordlist)
+    else:
+        print('No internet connection available!')
+def brute(url,wordlist):
+    if wordlist:
+        dir = open(wordlist);
+        for i in dir:
+                try:
+                    n = url+'/'+i
+                    rq.urlopen(n)
+                    result = 'echo "\033[0;32m" found : '+n
+                    with open('dir_log.sh','a') as f:
+                         f.write(result)
+                         os.system(result)
+                except:
+                    result = 'echo "\033[0;31m" Not found : '+n
+                    with open('dir_log.sh','a') as f:
+                         f.write(result)
+                         os.system(result)                
+    else:
+        print('please specify wordlists')
 def decrypt(): 
     try:
         enc_key = input('\nEnter your key of the algorithm : ')
@@ -290,8 +315,8 @@ def Cryptography():
         print('Invalid input')
 def start():
     CheckForUpdate()
-    print('\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Send mail (Premium) \n3.Visit git repo')
-    choice = input('\nEnter your choice (1,2,3) : ')
+    print('\nDeveloper @sirajju \n\nSelect an option from below\n\n1.Cryptography \n2.Send mail (Premium) \n3.SubDir finder \n4.Visit git repo')
+    choice = input('\nEnter your choice (1,2,3,4) : ')
     if choice=='1':
         Cryptography()
 
@@ -300,8 +325,9 @@ def start():
             CustomeMail()
         else:
             print(bs.b64decode('Tm90ZSA6IFRvIHVzZSB0aGlzIGZlYXR1cmUgUHJlbWl1bSBpcyByZXF1aXJlZA==').decode())
-    
     elif choice=='3':
+        dir_brute()
+    elif choice=='4':
         author()
     else:
         print('Invalid choice!')
