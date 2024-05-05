@@ -59,7 +59,7 @@ def sendOtp(otp,o00OOo0):
     sender = bs.b64decode('c2lydXNpcmFqdTJhYUBnbWFpbC5jb20=').decode()
     reciever = o00OOo0
     message = '\nYour otp to login ToolBox pro : '+str(otp)
-    password = 'uwjmpxmbpiurtouk'
+    password = MAIL_PASS
     if Mailer(sender,password,reciever,message):
         print('\nPlease check your mail to get otp ')
         return True
